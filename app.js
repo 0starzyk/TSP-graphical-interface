@@ -9,14 +9,6 @@ const coordinates = [[200, 300], [800, 400], [700, 100], [500, 500]];
 const allCities = alphabet.slice(0, coordinates.length);
 const links = 'ACDB';
 
-function index(sequence, value)
-{
-    for (let i = 0; i < sequence.length; i++)
-        if (value == sequence[i])
-            return i;
-    return null;
-}
-
 function linkLength(first, second)
 {
     return Math.sqrt((second[0] - first[0]) ** 2 + (second[1] - first[1]) ** 2);
@@ -49,8 +41,8 @@ let totalLength = 0;
 
 for (let i = 0; i < links.length - 1; i++)
 {
-    const firstCity = coordinates[index(alphabet, links[i])];
-    const secondCity = coordinates[index(alphabet, links[i + 1])];
+    const firstCity = coordinates[alphabet.indexOf(links[i])];
+    const secondCity = coordinates[alphabet.indexOf(links[i + 1])];
     const angle = linkAngle(firstCity, secondCity);
     const link = document.createElement('div');
 
